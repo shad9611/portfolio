@@ -1,0 +1,37 @@
+---
+import About from "../../components/about/about.astro";
+import BackToTopButton from "../../components/back-to-top/back-to-top-button.astro";
+import Experience from "../../components/experience/experience.astro";
+import Footer from "../../components/footer/footer.astro";
+import Navbar from "../../components/navbar/navbar.astro";
+import Projects from "../../components/projects/projects.astro";
+import Skills from "../../components/skills/skill.astro";
+import Layout from "../../layouts/Layout.astro";
+
+const { lang, t } = Astro.props;
+---
+
+<Layout lang={lang}>
+  <Navbar lang={lang} t={t} />
+
+  <main class="mx-auto max-w-6xl px-4 pt-13 pb-20">
+    <section id="about" class="min-h-[70vh] flex items-center justify-center">
+      <About lang={lang} t={t} />
+    </section>
+
+    <section id="experience" class="mt-16">
+      <Experience lang={lang} t={t} />
+    </section>
+
+    <section id="projects" class="mb-16">
+      <Projects lang={lang} t={t} />
+    </section>
+
+    <section id="skills">
+      <Skills lang={lang} t={t} />
+    </section>
+  </main>
+
+  <Footer lang={lang} t={t} />
+  <BackToTopButton />
+</Layout>

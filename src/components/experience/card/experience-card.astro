@@ -1,0 +1,163 @@
+---
+import AppIcon from "../../../shared/AppIcon.astro";
+import type { Experience } from "../../../types/experience";
+
+interface Props {
+  experience: Experience;
+}
+
+const { experience } = Astro.props;
+const badges = [...experience.technologies, ...(experience.architecture ?? [])];
+---
+
+<div
+  class="group
+    relative
+    overflow-hidden
+    rounded-3xl
+    border
+    border-zinc-200
+    bg-white/70
+    p-6
+    shadow-lg
+    shadow-zinc-200/50
+    backdrop-blur-xl
+    transition-all
+    duration-300
+    hover:-translate-y-1
+    hover:border-orange-400/40
+    hover:shadow-2xl
+    hover:shadow-orange-500/10
+    dark:border-zinc-800
+    dark:bg-white/[0.03]
+    dark:shadow-black/20"
+>
+  <!-- Glow -->
+  <div
+    class="absolute
+      right-0
+      top-0
+      h-32
+      w-32
+      rounded-full
+      bg-orange-500/5
+      blur-3xl
+      opacity-0
+      transition-opacity
+      duration-300
+      group-hover:opacity-100"
+  >
+  </div>
+
+  <div class="relative z-10 flex gap-5">
+    {
+      experience.logo && (
+        <div
+          class="flex
+            h-16
+            w-16
+            shrink-0
+            items-center
+            justify-center
+            rounded-2xl
+            border
+            border-zinc-200
+            bg-white
+            shadow-sm
+            dark:border-zinc-700
+            dark:bg-zinc-900"
+        >
+          <img
+            src={experience.logo}
+            alt={experience.company}
+            class="h-10 w-10 object-contain"
+          />
+        </div>
+      )
+    }
+
+    <div class="flex-1">
+      <div
+        class="flex
+          flex-col
+          gap-2
+          md:flex-row
+          md:items-center
+          md:justify-between"
+      >
+        <div>
+          <h3
+            class="text-xl
+              font-bold
+              text-zinc-900
+              dark:text-white"
+          >
+            {experience.role}
+          </h3>
+
+          <p class="font-medium
+              text-orange-500">
+            {experience.company}
+          </p>
+        </div>
+
+        <span
+          class="w-fit
+            rounded-full
+            border
+            border-orange-500/20
+            bg-orange-500/10
+            px-3
+            py-1
+            text-xs
+            font-semibold
+            text-orange-600
+            dark:text-orange-400"
+        >
+          {experience.period}
+        </span>
+      </div>
+
+      <p
+        class="mt-4
+          leading-relaxed
+          text-zinc-600
+          dark:text-zinc-400"
+      >
+        {experience.description}
+      </p>
+
+      <div class="mt-5 flex flex-wrap gap-2">
+        {
+          badges.map((item) => (
+            <span
+              class="inline-flex
+          items-center
+          gap-2
+          rounded-full
+          border
+          border-zinc-200
+          bg-white/70
+          px-3
+          py-1.5
+          text-sm
+          font-medium
+          text-zinc-700
+          transition-all
+          duration-300
+          hover:border-orange-400/40
+          hover:text-orange-500
+          dark:border-zinc-700
+          dark:bg-zinc-900/50
+          dark:text-zinc-300"
+            >
+              <AppIcon name={item.icon} class="h-4 w-4" />
+
+              {item.name}
+            </span>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</div>

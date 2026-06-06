@@ -1,0 +1,42 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<footer
+  class="mt-24 border-t border-zinc-200/80 bg-white/40 backdrop-blur-sm dark:border-zinc-800 dark:bg-zinc-950/30"
+>
+  <div
+    class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 py-8 md:flex-row"
+  >
+    <p class="text-sm text-zinc-600 dark:text-zinc-400">
+      © {new Date().getFullYear()} Shadai Barraza ·
+      <span
+        class="bg-gradient-to-r from-orange-400 via-pink-500 to-violet-500 bg-clip-text font-semibold text-transparent"
+      >
+        Built with Astro
+      </span>
+    </p>
+
+    <div class="flex items-center gap-4">
+      <a
+        href="https://github.com/shad9611"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="GitHub"
+        class="flex h-11 w-11 items-center justify-center rounded-full border border-zinc-300 bg-white/60 transition-all duration-300 hover:-translate-y-1 hover:border-orange-400 hover:shadow-[0_0_20px_rgba(251,146,60,0.25)] dark:border-zinc-700 dark:bg-zinc-900/50"
+      >
+        <Icon name="mdi:github" class="h-5 w-5" />
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/shadai-barraza/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn"
+        class="flex h-11 w-11 items-center justify-center rounded-full border border-zinc-300 bg-white/60 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400 hover:shadow-[0_0_20px_rgba(34,211,238,0.25)] dark:border-zinc-700 dark:bg-zinc-900/50"
+      >
+        <Icon name="mdi:linkedin" class="h-5 w-5" />
+      </a>
+    </div>
+  </div>
+</footer>

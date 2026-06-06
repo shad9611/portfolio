@@ -1,0 +1,45 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<button
+  id="back-to-top"
+  aria-label="Back to top"
+  class="fixed bottom-30 right-3 z-50
+    hidden
+    h-12 w-12
+    items-center justify-center
+    rounded-full
+    border border-zinc-300/70
+    bg-white/70
+    text-zinc-700
+    backdrop-blur-xl
+    transition-all duration-300
+    hover:-translate-y-1
+    hover:border-orange-400
+    hover:text-orange-500
+    dark:border-white/10
+    dark:bg-black/40
+    dark:text-zinc-300
+    dark:hover:border-orange-400
+    dark:hover:text-orange-400"
+>
+  <Icon name="lucide:chevrons-up" class="h-5 w-5" />
+</button>
+
+<script is:inline>
+  const btn = document.getElementById("back-to-top");
+
+  window.addEventListener("scroll", () => {
+    btn?.classList.toggle("hidden", window.scrollY < 400);
+
+    btn?.classList.toggle("flex", window.scrollY >= 400);
+  });
+
+  btn?.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+</script>

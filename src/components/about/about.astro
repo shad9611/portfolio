@@ -1,0 +1,141 @@
+---
+import type { Icons } from "../../shared/icons";
+import SocialLink from "../socialLink/social-link.astro";
+
+type SocialLinkItem = {
+  href: string;
+  icon: keyof typeof Icons;
+  label?: string;
+  download?: string;
+  external?: boolean;
+};
+const { t, lang } = Astro.props;
+
+const socialLinks: SocialLinkItem[] = [
+  {
+    href: "https://github.com/shad9611",
+    icon: "github",
+  },
+  {
+    href: "https://www.linkedin.com/in/shadai-barraza/",
+    icon: "linkedin",
+  },
+  {
+    href: "mailto:elohim.shadai26@gmail.com",
+    icon: "email",
+  },
+  {
+    href:
+      lang === "en" ? "/cv-Shadai-barraza-en.pdf" : "/cv-Shadai-barraza.pdf",
+    icon: "cv",
+    label: "CV",
+    download:
+      lang === "en" ? "Shadai-Barraza-CV-English.pdf" : "CV-Shadai-Barraza.pdf",
+  },
+];
+---
+
+<section
+  id="about"
+  class="relative
+    overflow-hidden
+    mx-auto
+    mt-10
+    max-w-3xl
+    rounded-3xl
+    border
+    border-zinc-200
+    bg-white/70
+    p-6 md:p-8
+    shadow-xl
+    shadow-zinc-200/40
+    backdrop-blur-xl
+    dark:border-zinc-800
+    dark:bg-white/[0.03]
+    dark:shadow-black/20
+    transition-all
+    duration-300
+    hover:-translate-y-1
+    hover:border-orange-400/30
+    hover:shadow-2xl
+    hover:shadow-orange-500/10"
+>
+  <div
+    class="pointer-events-none
+      absolute
+      -top-24
+      left-1/2
+      h-80
+      w-80
+      -translate-x-1/2
+      rounded-full
+      bg-orange-500/10
+      blur-3xl
+      dark:bg-orange-500/20"
+  >
+  </div>
+
+  <div class="relative z-10 text-center">
+    <span
+      class="inline-flex
+        items-center
+        rounded-full
+        border
+        border-orange-500/20
+        bg-orange-500/10
+        px-4
+        py-2
+        text-sm
+        font-medium
+        text-orange-600
+        dark:text-orange-400"
+    >
+      Full Stack Developer
+    </span>
+
+    <h1
+      class="mt-5
+        text-4xl md:text-6xl
+        font-bold
+        tracking-tight
+        text-zinc-900
+        dark:bg-gradient-to-r
+        dark:from-orange-400
+        dark:via-pink-400
+        dark:to-violet-400
+        dark:bg-clip-text
+        dark:text-transparent"
+    >
+      {t.hero.title}
+    </h1>
+
+    <div
+      class="mx-auto
+        mt-2
+        h-px
+        w-28
+        bg-gradient-to-r
+        from-orange-500
+        via-pink-500
+        to-violet-500"
+    >
+    </div>
+
+    <p
+      class="mx-auto
+        mt-5
+        max-w-2xl
+        text-md
+        leading-relaxed
+        text-zinc-600
+        md:text-xl
+        dark:text-zinc-400"
+    >
+      {t.hero.description}
+    </p>
+
+    <div class="mt-10 flex flex-wrap justify-center gap-4">
+      {socialLinks.map((link) => <SocialLink {...link} />)}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,111 @@
+---
+import { getSkils } from "../../data/skills-data";
+import AppIcon from "../../shared/AppIcon.astro";
+
+const { t, lang } = Astro.props;
+
+const categories = {
+  frontend: "Frontend",
+  backend: "Backend",
+  database: "Bases de Datos",
+  architecture: "Arquitectura",
+  tools: "Herramientas",
+  softskills: "Soft Skills",
+};
+
+const skills = getSkils(lang);
+
+const grouped = skills.reduce(
+  (acc, skill) => {
+    if (!acc[skill.category]) acc[skill.category] = [];
+    acc[skill.category].push(skill);
+    return acc;
+  },
+  {} as Record<string, typeof skills>,
+);
+
+const skillsByCategory = Object.entries(categories).map(([key, title]) => ({
+  title,
+  skills: grouped[key] ?? [],
+}));
+---
+
+<section id="skills" class="mx-auto max-w-6xl px-4 py-16">
+  <h2 class="mb-10 text-center text-4xl font-bold md:text-5xl">
+    {t.skills.title}
+  </h2>
+
+  <div class="space-y-6">
+    {
+      skillsByCategory.map((category) => (
+        <div
+          class="
+            rounded-2xl
+            border
+            border-zinc-200
+            bg-white/50
+            p-6
+            backdrop-blur
+
+            dark:border-white/10
+            dark:bg-white/5
+          "
+        >
+          <h3
+            class="
+              mb-6
+              border-b
+              border-zinc-200
+              pb-3
+              text-2xl
+              font-semibold
+              dark:border-white/10
+              text-center
+            "
+          >
+            {category.title}
+          </h3>
+
+          <div
+            class="
+    grid
+    gap-4
+    [grid-template-columns:repeat(auto-fit,minmax(160px,1fr))]
+    justify-center
+  "
+          >
+            {category.skills.map((skill) => (
+              <div
+                class="
+                  flex
+                  items-center
+                  gap-3
+                  rounded-xl
+                  border
+                  border-zinc-200
+                  bg-white
+                  px-4
+                  py-3
+
+                  transition-all
+                  duration-300
+
+                  hover:-translate-y-1
+
+                  dark:border-white/10
+                  dark:bg-zinc-900/50
+                  dark:hover:border-orange-400/30
+                  dark:hover:shadow-[0_0_20px_rgba(251,146,60,0.15)]
+                "
+              >
+                {skill.icon && <AppIcon name={skill.icon} class="h-5 w-5" />}
+
+                <span class="font-medium">{skill.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

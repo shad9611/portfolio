@@ -1,0 +1,116 @@
+---
+import { Icon } from "astro-icon/components";
+import LanguageSelector from "../language-selector/language-selector.astro";
+import Navlink from "../navLink/nav-link.astro";
+
+const { t, lang } = Astro.props;
+
+const links = [
+  { href: "#about", label: t.navbar.about },
+  { href: "#experience", label: t.navbar.experience },
+  { href: "#projects", label: t.navbar.projects },
+  { href: "#skills", label: t.navbar.skills },
+];
+
+const locales = [
+  { code: "es", label: "ES" },
+  { code: "en", label: "EN" },
+];
+---
+
+<header
+  id="navbar"
+  class="fixed top-2 left-0 z-50 w-full
+    transition-transform duration-300"
+>
+  <nav
+    class="mx-auto
+    max-w-6xl
+    rounded-2xl
+    border border-zinc-300/60
+    bg-white/70
+    shadow-lg shadow-zinc-200/50
+    dark:border-white/10
+    dark:bg-black/40
+    dark:shadow-black/20
+    backdrop-blur-xl
+    transition-all duration-300"
+  >
+    <ul
+      class="flex flex-wrap items-center justify-center gap-2 px-5 py-4 md:gap-4"
+    >
+      {
+        links.map((link) => (
+          <li>
+            <Navlink {...link} />
+          </li>
+        ))
+      }
+
+      <li class="flex items-center gap-2">
+        <button
+          id="theme-toggle"
+          aria-label="Cambiar tema"
+          class="flex h-10 w-10 items-center justify-center
+    rounded-full
+    border border-zinc-300/60
+    bg-white/60
+    text-zinc-700
+    backdrop-blur-md
+    hover:-translate-y-1
+    hover:border-orange-400/50
+    hover:text-orange-500
+    hover:shadow-lg
+    dark:border-zinc-700/50
+    dark:bg-white/5
+    dark:text-zinc-300
+    transition-all duration-300"
+        >
+          <Icon name="lucide:moon" class="h-5 w-5 dark:hidden" />
+          <Icon name="lucide:sun" class="hidden h-5 w-5 dark:block" />
+        </button>
+
+        <!-- {
+          locales.map((locale) => (
+            <LanguageSelector
+              code={locale.code}
+              label={locale.label}
+              lang={lang}
+            />
+          ))
+        } -->
+      </li>
+    </ul>
+
+    <script is:inline>
+      const button = document.getElementById("theme-toggle");
+
+      button?.addEventListener("click", () => {
+        document.documentElement.classList.toggle("dark");
+
+        localStorage.setItem(
+          "theme",
+          document.documentElement.classList.contains("dark")
+            ? "dark"
+            : "light",
+        );
+      });
+
+      const navbar = document.getElementById("navbar");
+
+      let lastScroll = 0;
+
+      window.addEventListener("scroll", () => {
+        const current = window.scrollY;
+
+        if (current > lastScroll && current > 100) {
+          navbar.classList.add("-translate-y-full");
+        } else {
+          navbar.classList.remove("-translate-y-full");
+        }
+
+        lastScroll = current;
+      });
+    </script>
+  </nav>
+</header>

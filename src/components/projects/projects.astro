@@ -1,0 +1,26 @@
+---
+import { PROJECTS } from "../../data/projects-data";
+import ProjectCard from "./card/project-card.astro";
+
+const { t, lang } = Astro.props;
+---
+
+<section id="projects" class="mx-auto max-w-7xl px-4 py-24">
+  <h2 class="mb-12 text-center text-4xl font-bold md:text-6xl">
+    {t.projects.title}
+  </h2>
+
+  {
+    PROJECTS.length ? (
+      <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        {PROJECTS.map((project) => (
+          <ProjectCard project={project} />
+        ))}
+      </div>
+    ) : (
+      <p class="text-center text-zinc-500">
+        No hay proyectos disponibles por el momento.
+      </p>
+    )
+  }
+</section>
