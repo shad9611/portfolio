@@ -16,8 +16,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier . --write",
-    "check": "astro check",
-    "deploy": "gh-pages -d dist"
+    "check": "astro check"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.9",
