@@ -14,6 +14,6 @@ export default defineConfig({
         locales: ["es", "en"]
     },
     site: "https://shad9611.github.io",
-    base: "/portfolio",
+    base: "/portfolio/",
 
 });
