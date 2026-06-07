@@ -13,7 +13,7 @@ export interface Skill {
     | "softskills";
 }
 
-export const getSkils = (lang: "es" | "en"): Skill[] => ([
+export const getSkils = (): Skill[] => ([
     { name: "Angular", icon: "angular", category: "frontend" },
     { name: "Astro", icon: "astro", category: "frontend" },
     { name: "TypeScript", icon: "typescript", category: "frontend" },

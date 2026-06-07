@@ -12,5 +12,8 @@ export default defineConfig({
     i18n: {
         defaultLocale: "es",
         locales: ["es", "en"]
-    }
+    },
+    site: "https://shad9611.github.io",
+    base: "/Portfolio",
+
 });

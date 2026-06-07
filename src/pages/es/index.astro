@@ -1,6 +1,10 @@
 ---
-import es from "../../i18n/es";
-import Home from "../home/home.astro";
+import Home from "../../components/home/home.astro";
+
+import { getI18n } from "../../i18n/getI18n";
+
+const lang = "es";
+const t = getI18n(lang);
 ---
 
-<Home lang="es" t={es} />
+<Home lang={lang} t={t} />

@@ -7,12 +7,10 @@
     <meta charset="utf-8" />
 
     <script is:inline>
-      const locale = navigator.language.toLowerCase();
+      const lang = navigator.language.startsWith("en") ? "en" : "es";
 
-      if (locale.startsWith("en")) {
-        location.replace("/es");
-      } else {
-        location.replace("/es");
+      if (location.pathname === "/") {
+        location.replace(`/${lang}`);
       }
     </script>
   </head>

@@ -1,0 +1,6 @@
+import en from "../i18n/en";
+import es from "../i18n/es";
+
+export function getI18n(lang: string) {
+    return lang === "en" ? en : es;
+}

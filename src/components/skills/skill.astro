@@ -2,7 +2,7 @@
 import { getSkils } from "../../data/skills-data";
 import AppIcon from "../../shared/AppIcon.astro";
 
-const { t, lang } = Astro.props;
+const { t } = Astro.props;
 
 const categories = {
   frontend: "Frontend",
@@ -13,7 +13,7 @@ const categories = {
   softskills: "Soft Skills",
 };
 
-const skills = getSkils(lang);
+const skills = getSkils();
 
 const grouped = skills.reduce(
   (acc, skill) => {
