@@ -13,7 +13,7 @@ export default defineConfig({
         defaultLocale: "es",
         locales: ["es", "en"]
     },
-    site: "https://shad9611.github.io",
     base: "/portfolio/",
+    site: "https://shad9611.github.io"
 
 });
