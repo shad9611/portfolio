@@ -25,7 +25,7 @@ export const getExperiences = (): Experience[] => (
                 Architectures.Hexagonal,
                 Architectures.Clean,
             ],
-            logo: "icons/gaman.webp",
+            logo: "/img/gaman.webp",
         },
         // Inroute
         {
@@ -47,7 +47,7 @@ export const getExperiences = (): Experience[] => (
             architecture: [
                 Architectures.MVC
             ],
-            logo: "icons/inroute.svg",
+            logo: "/img/inroute.svg",
         },
 
     ]

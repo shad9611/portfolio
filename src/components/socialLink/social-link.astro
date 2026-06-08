@@ -1,6 +1,7 @@
 ---
 import AppIcon from "../../shared/AppIcon.astro";
 import { Icons } from "../../shared/icons";
+import { getAssetPath } from "../../shared/utils/get-asset-path";
 
 interface Props {
   href: string;
@@ -20,7 +21,7 @@ const {
 ---
 
 <a
-  href={href}
+  href={getAssetPath(href)}
   target={external ? "_blank" : undefined}
   rel={external ? "noopener noreferrer" : undefined}
   download={download ? download : undefined}
