@@ -7,6 +7,7 @@ export const getExperiences = (): Experience[] => (
     [
         // Gaman
         {
+            translationKey: "gaman",
             company: "Gaman Solutions",
             role: "Fullstack Developer",
             period: "Febrero 2025 - Actualidad",
@@ -29,6 +30,7 @@ export const getExperiences = (): Experience[] => (
         },
         // Inroute
         {
+            translationKey: "inroute",
             company: "Inroute Telematics",
             role: "Full Stack Developer",
             period: "Octubre 2023 - Febrero 2025",

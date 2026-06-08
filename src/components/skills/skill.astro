@@ -4,16 +4,9 @@ import AppIcon from "../../shared/AppIcon.astro";
 
 const { t } = Astro.props;
 
-const categories = {
-  frontend: "Frontend",
-  backend: "Backend",
-  database: "Bases de Datos",
-  architecture: "Arquitectura",
-  tools: "Herramientas",
-  softskills: "Soft Skills",
-};
+const categories = t.skills.categories;
 
-const skills = getSkils();
+const skills = getSkils(t);
 
 const grouped = skills.reduce(
   (acc, skill) => {

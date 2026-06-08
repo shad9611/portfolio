@@ -1,3 +1,4 @@
+import type { Translation } from '@/i18n';
 import type { Architectures } from '../shared/architectures';
 import { Technologies } from '../shared/technologies';
 
@@ -7,7 +8,11 @@ export type Technology =
 export type Architecture =
     (typeof Architectures)[keyof typeof Architectures];
 
+type ExperienceTranslationKey =
+    keyof Translation["experience"]["items"];
+
 export interface Experience {
+    translationKey: ExperienceTranslationKey
     role: string;
     company: string;
     period: string;

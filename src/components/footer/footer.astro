@@ -1,5 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
+
+const { t } = Astro.props;
 ---
 
 <footer
@@ -13,7 +15,7 @@ import { Icon } from "astro-icon/components";
       <span
         class="bg-gradient-to-r from-orange-400 via-pink-500 to-violet-500 bg-clip-text font-semibold text-transparent"
       >
-        Built with Astro
+        {t.built.with}
       </span>
     </p>
 

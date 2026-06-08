@@ -1,15 +1,17 @@
 ---
+import type { Translation } from "@/i18n";
+import AppIcon from "@/shared/AppIcon.astro";
+import type { Project } from "@/types/projects";
 import { Icon } from "astro-icon/components";
-import AppIcon from "../../../shared/AppIcon.astro";
-import type { Project } from "../../../types/projects";
 
 interface Props {
   project: Project;
+  t: Translation;
 }
 
-const { project } = Astro.props;
+const { project, t } = Astro.props;
+const translation = t.projects.items[project.translationKey];
 
-// FIX typo + safety
 const badges = [
   ...(project.technologies ?? []),
   ...(project.architectures ?? []),
@@ -22,19 +24,19 @@ const badges = [
   <!-- HEADER -->
   <div class="flex items-center justify-between">
     <h3 class="text-xl font-bold">
-      {project.title}
+      {translation.title}
     </h3>
 
     <span
       class="rounded-full border border-orange-500/20 bg-orange-500/10 px-3 py-1 text-xs font-semibold text-orange-500"
     >
-      {project.status}
+      {t.projects.status[project.status]}
     </span>
   </div>
 
   <!-- DESCRIPTION -->
   <p class="mt-4 flex-1 text-zinc-600 dark:text-zinc-400">
-    {project.description}
+    {translation.description}
   </p>
 
   <!-- BADGES -->

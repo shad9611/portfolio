@@ -5,41 +5,25 @@ export default {
         skills: "Habilidades",
         projects: "Proyectos",
     },
-
-    hero: {
-        title: "Shadai Barraza",
-        description:
-            "Full Stack Developer enfocado en la creación de aplicaciones web y sistemas escalables. Experiencia en Node.js, TypeScript, React, Angular y Vue.js. Diseño soluciones mantenibles aplicando Arquitectura Hexagonal, Clean Architecture y principios SOLID.",
-        yearsExperience: "Años de experiencia",
-        deliveredProjects: "Proyectos entregados",
-    },
-
     about: {
         title: "Sobre mí",
-        description:
-            "Desarrollador Full Stack especializado en backend y frontend moderno. Me enfoco en construir sistemas escalables, bien estructurados y listos para producción, integrando bases de datos SQL/NoSQL, autenticación y arquitecturas desacopladas.",
+        description: "Desarrollador Full Stack especializado en backend y frontend moderno. Me enfoco en construir sistemas escalables, bien estructurados y listos para producción, integrando bases de datos SQL/NoSQL, autenticación y arquitecturas desacopladas.",
     },
-
     experience: {
         title: "Experiencia",
-        jobs: [
-            {
-                company: "Tech Solutions Inc.",
-                position: "Senior Full Stack Developer",
-                duration: "Ene 2022 - Presente",
-                description:
-                    "Desarrollo de aplicaciones empresariales escalables con Node.js, TypeScript y React. Implementación de arquitectura de microservicios, CI/CD y optimización de performance en backend.",
+        items: {
+            gaman: {
+                role: "FullStack Developer",
+                period: "Febrero 2022 - Actualidad",
+                description: "Desarrollo y mantenimiento de plataformas empresariales de alto impacto para los sectores de comercio electrónico, logística y transformación digital, construcción de aplicaciones web modernas con Angular y TypeScript, así como del diseño e implementación de APIs RESTful escalables con Node.js y Express, utilizando arquitectura hexagonal.",
             },
-            {
-                company: "Innovatech Labs",
-                position: "Full Stack Developer",
-                duration: "Jun 2019 - Dic 2021",
-                description:
-                    "Desarrollo de aplicaciones web con Angular, Vue.js y Node.js. Integración de APIs REST, diseño de interfaces responsivas y colaboración en equipos ágiles.",
+            inroute: {
+                role: "FullStack Developer",
+                period: "Octubre 2023 - Febrero 2025",
+                description: "Participé en el desarrollo de soluciones de telemática e IoT enfocadas en rastreo vehicular y gestión de flotillas. Formé parte del equipo responsable de Mobox, una plataforma de monitoreo y geolocalización en tiempo real desarrollada con Vue 3, Quasar y Ruby on Rails. Colaboré estrechamente con áreas de negocio, UX/UI y operaciones para transformar requerimientos en funcionalidades escalables, aplicando buenas prácticas de desarrollo y metodologías ágiles. También brindé soporte técnico para la integración de dispositivos IoT y contribuí al desarrollo del sitio web corporativo de Movo IoT Solutions.",
             },
-        ],
+        },
     },
-
     skills: {
         title: "Habilidades",
         categories: {
@@ -50,38 +34,53 @@ export default {
             tools: "Herramientas",
             softskills: "Soft Skills",
         },
+        softSkills: {
+            teamWork: "Trabajo en equipo",
+            communication: "Comunicacion"
+        }
     },
-
     projects: {
         title: "Proyectos",
-        list: [
-            {
-                name: "Sistema de Seguimiento Nutricional",
-                description:
-                    "Plataforma fullstack para gestión de pacientes, dietas y seguimiento nutricional con generación de reportes en PDF/Excel y envío por correo o WhatsApp.",
+        status: {
+            completed: "Completado",
+            inProgress: "En progreso",
+        },
+        items: {
+            nutrition: {
+                title: "Sistema de Seguimiento Nutricional",
+                description: "Plataforma fullstack para gestión de pacientes, dietas y seguimiento nutricional con generación de reportes en PDF/Excel y envío por correo o WhatsApp.",
             },
-            {
-                name: "Bot de Trading Cripto (Hexagonal)",
-                description:
-                    "Bot de criptomonedas con arquitectura hexagonal y monorepo, separado en dominio y adaptadores usando Node.js y Python.",
+            crypto: {
+                title: "Bot de Trading Cripto (Hexagonal)",
+                description: "Bot de criptomonedas con arquitectura hexagonal y monorepo, separado en dominio y adaptadores usando Node.js y Python.",
             },
-            {
-                name: "API de Autenticación Firebase",
-                description:
-                    "API REST con autenticación social (Google y Facebook) usando Firebase e integración con middleware en Express.",
+            authFirebase: {
+                title: "API de Autenticación Firebase",
+                description: "API REST con autenticación social (Google y Facebook) usando Firebase e integración con middleware en Express.",
             },
-            {
-                name: "Portfolio Personal",
-                description:
-                    "Portfolio moderno construido con Astro, sistema de componentes reutilizables e integración de iconos dinámicos.",
+            portfolio: {
+                title: "Portfolio Personal",
+                description: "Portfolio moderno construido con Astro, sistema de componentes reutilizables e integración de iconos dinámicos.",
             },
-        ],
+            gestionPx: {
+                title: "Sistema de Gestión de Pacientes",
+                description: "Backend para administración de pacientes con control de peso, registros médicos y seguimiento histórico usando SQL y servicios desacoplados.",
+            },
+            procesingData: {
+                title: "Microservicio de Procesamiento de Datos",
+                description: "Servicio independiente para procesamiento y normalización de datos en tiempo real, preparado para escalabilidad horizontal.",
+            },
+            mobox: {
+                title: "MoboMx",
+                description: "Sass para visualizar los dispositivos disposibles a la venta, primera version",
+            },
+            biew: {
+                title: "Biew",
+                description: "Pagina para realizar tu tienda en linea utilizando google sheet como fuente de datos",
+            }
+        }
     },
-
-    tech: {
-        node: "Node.js",
-        frontendStack: "React / Angular / Vue",
-        backendStack: "Node.js / Express",
-        architecture: "Arquitecturas limpias y escalables",
-    },
+    built: {
+        with: "Contruido con Astro"
+    }
 } as const;

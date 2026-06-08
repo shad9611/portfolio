@@ -22,7 +22,7 @@ const { t } = Astro.props;
   <div class="relative space-y-6">
     {
       experiences.map((experience) => (
-        <ExperienceCard experience={experience} />
+        <ExperienceCard experience={experience} t={t} />
       ))
     }
   </div>

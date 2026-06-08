@@ -14,7 +14,7 @@ const { t } = Astro.props;
     PROJECTS.length ? (
       <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         {PROJECTS.map((project) => (
-          <ProjectCard project={project} />
+          <ProjectCard project={project} t={t} />
         ))}
       </div>
     ) : (

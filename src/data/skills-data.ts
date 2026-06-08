@@ -1,7 +1,9 @@
 
+import type { Translation } from "@/i18n";
 import { Icons } from "../shared/icons";
 
 export interface Skill {
+    translationKey?: string;
     name: string;
     icon: keyof typeof Icons;
     category:
@@ -13,7 +15,7 @@ export interface Skill {
     | "softskills";
 }
 
-export const getSkils = (): Skill[] => ([
+export const getSkils = (t: Translation): Skill[] => ([
     { name: "Angular", icon: "angular", category: "frontend" },
     { name: "Astro", icon: "astro", category: "frontend" },
     { name: "TypeScript", icon: "typescript", category: "frontend" },
@@ -41,6 +43,6 @@ export const getSkils = (): Skill[] => ([
     { name: "Git", icon: "git", category: "tools" },
     { name: "SCRUM", icon: "scrum", category: "tools" },
 
-    { name: "Trabajo en equipo", icon: "coworker", category: "softskills" },
-    { name: "Communication", icon: "Communication", category: "softskills" },
+    { name: t.skills.softSkills.teamWork, icon: "coworker", category: "softskills" },
+    { name: t.skills.softSkills.communication, icon: "Communication", category: "softskills" },
 ]);

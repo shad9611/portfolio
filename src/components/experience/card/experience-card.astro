@@ -1,13 +1,18 @@
 ---
+import type { Translation } from "@/i18n";
+import type { Experience } from "@/types/experience";
 import AppIcon from "../../../shared/AppIcon.astro";
 import { getAssetPath } from "../../../shared/utils/get-asset-path";
-import type { Experience } from "../../../types/experience";
 
 interface Props {
   experience: Experience;
+  t: Translation;
 }
 
-const { experience } = Astro.props;
+const { experience, t } = Astro.props;
+
+const translation = t.experience.items[experience.translationKey];
+
 const badges = [...experience.technologies, ...(experience.architecture ?? [])];
 ---
 
@@ -93,7 +98,7 @@ const badges = [...experience.technologies, ...(experience.architecture ?? [])];
               text-zinc-900
               dark:text-white"
           >
-            {experience.role}
+            {translation.role}
           </h3>
 
           <p class="font-medium
@@ -115,7 +120,7 @@ const badges = [...experience.technologies, ...(experience.architecture ?? [])];
             text-orange-600
             dark:text-orange-400"
         >
-          {experience.period}
+          {translation.period}
         </span>
       </div>
 
@@ -125,7 +130,7 @@ const badges = [...experience.technologies, ...(experience.architecture ?? [])];
           text-zinc-600
           dark:text-zinc-400"
       >
-        {experience.description}
+        {translation.description}
       </p>
 
       <div class="mt-5 flex flex-wrap gap-2">

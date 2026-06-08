@@ -1,3 +1,4 @@
+import type { Translation } from "@/i18n";
 import type { Architectures } from "../shared/architectures";
 import type { Technologies } from "../shared/technologies";
 
@@ -7,15 +8,16 @@ export type Technology =
 export type Architectory =
     (typeof Architectures)[keyof typeof Architectures];
 
+type ProjectTranslationKey =
+    keyof Translation["projects"]["items"];
 
 export interface Project {
+    translationKey: ProjectTranslationKey
     id: number;
-    title: string;
-    description: string;
     technologies: Technology[];
     architectures?: Architectory[]
     image?: string;
     demoUrl?: string;
     githubUrl?: string;
-    status: "completed" | "in-progress" | "planned";
+    status: "completed" | "inProgress";
 }
