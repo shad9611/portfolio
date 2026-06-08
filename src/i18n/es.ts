@@ -6,7 +6,7 @@ export default {
         projects: "Proyectos",
     },
     about: {
-        title: "Sobre mí",
+        title: "Shadai Barraza",
         description: "Desarrollador Full Stack especializado en backend y frontend moderno. Me enfoco en construir sistemas escalables, bien estructurados y listos para producción, integrando bases de datos SQL/NoSQL, autenticación y arquitecturas desacopladas.",
     },
     experience: {
